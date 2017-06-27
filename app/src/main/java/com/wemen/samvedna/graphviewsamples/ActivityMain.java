@@ -11,6 +11,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     Button btn_line_chart;
     Button btn_bar_chart;
     Button btn_horizontal_bar_chart;
+    Button btn_pie_chart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +21,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
         btn_bar_chart = (Button) findViewById(R.id.btn_bar_chart);
         btn_line_chart = (Button) findViewById(R.id.btn_line_chart);
         btn_horizontal_bar_chart = (Button) findViewById(R.id.btn_horizontal_bar_chart);
+        btn_pie_chart = (Button) findViewById(R.id.btn_pie_chart);
 
         btn_bar_chart.setOnClickListener(this);
         btn_line_chart.setOnClickListener(this);
         btn_horizontal_bar_chart.setOnClickListener(this);
+        btn_pie_chart.setOnClickListener(this);
     }
 
     @Override
@@ -38,7 +41,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_horizontal_bar_chart:
                 openHorizonatlBarChartActivity();
                 break;
+            case R.id.btn_pie_chart:
+                openPieChart();
+                break;
         }
+    }
+
+    private void openPieChart() {
+        Intent intent = new Intent(this,ActivityPieChart.class);
+        startActivity(intent);
     }
 
     private void openHorizonatlBarChartActivity() {

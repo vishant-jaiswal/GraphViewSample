@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityBarChart" />
-        <activity android:name=".ActivityHorizontalBarChart"></activity>
+        <activity android:name=".ActivityHorizontalBarChart" />
+        <activity android:name=".ActivityPieChart"></activity>
     </application>
 
 </manifest>
