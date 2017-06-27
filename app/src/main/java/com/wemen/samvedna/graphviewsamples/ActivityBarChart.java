@@ -1,5 +1,6 @@
 package com.wemen.samvedna.graphviewsamples;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import com.github.mikephil.charting.utils.EntryXComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ActivityBarChart extends AppCompatActivity {
     BarChart chart;
@@ -21,27 +23,36 @@ public class ActivityBarChart extends AppCompatActivity {
         setContentView(R.layout.activity_bar_chart);
         chart = (BarChart) findViewById(R.id.bar_chart);
 
-        ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 1f));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(12f, 3));
-        entries.add(new BarEntry(18f, 4));
-        entries.add(new BarEntry(9f, 5));
+        float[] group1 = new float[]{3f,1f,2f,3f,4f,5f,6f,2f};
+        float[] group2 = new float[]{1f,2f,3f,4f,5f,6f,2f,3f};
+
+
+        List<BarEntry> entriesGroup1 = new ArrayList<>();
+        List<BarEntry> entriesGroup2 = new ArrayList<>();
         //Collections.sort(entries,new EntryXComparator());
 
+        for(int i = 0; i < group1.length; i++) {
+            entriesGroup1.add(new BarEntry(i,group1[i]));
+            entriesGroup2.add(new BarEntry(i, group2[i]));
+        }
 
-        BarDataSet dataset = new BarDataSet(entries, "# of Calls");
 
-        BarData data = new BarData(dataset);
-        data.setBarWidth(0.8f);
+        BarDataSet set1 = new BarDataSet(entriesGroup1, "Group 1");
+        set1.setColor(Color.RED);
+        BarDataSet set2 = new BarDataSet(entriesGroup2, "Group 2");
+        set2.setColor(Color.GREEN);
+
+        BarData data = new BarData(set1,set2);
+        data.setBarWidth(0.45f);
+        chart.getXAxis().setCenterAxisLabels(true);
         chart.setData(data);
-        chart.getXAxis().setDrawGridLines(false);
+        /*chart.getXAxis().setDrawGridLines(false);
         chart.getAxisRight().setDrawGridLines(false);
         chart.getAxisLeft().setDrawGridLines(false);
         chart.setHighlightFullBarEnabled(false);
-        chart.setDoubleTapToZoomEnabled(false);
-        chart.setFitBars(true);
+        chart.setDoubleTapToZoomEnabled(false);*/
+        chart.groupBars(2f,0.06f,0.02f);
+        //chart.setFitBars(true)
         chart.invalidate();
     }
 }
