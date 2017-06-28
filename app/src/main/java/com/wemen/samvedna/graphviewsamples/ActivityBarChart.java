@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -44,14 +46,25 @@ public class ActivityBarChart extends AppCompatActivity {
 
         BarData data = new BarData(set1,set2);
         data.setBarWidth(0.45f);
-        chart.getXAxis().setCenterAxisLabels(true);
+       // chart.getXAxis().setCenterAxisLabels(true);
         chart.setData(data);
+
+        YAxis left = chart.getAxisLeft();
+        left.setValueFormatter(new MyYAxisValueFormatter());
+
+        String[] values = new String[] {"A","B","C","D","E","F","G","H","I","J","K","L","M"};
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setValueFormatter(new MyXAxisValueFormatter(values));
+        xAxis.setGranularity(1f);
         /*chart.getXAxis().setDrawGridLines(false);
         chart.getAxisRight().setDrawGridLines(false);
         chart.getAxisLeft().setDrawGridLines(false);
         chart.setHighlightFullBarEnabled(false);
         chart.setDoubleTapToZoomEnabled(false);*/
-        chart.groupBars(2f,0.06f,0.02f);
+        chart.groupBars(0f,0.06f,0.02f);
+        chart.animateY(1000);
+        chart.animateX(4000);
+
         //chart.setFitBars(true)
         chart.invalidate();
     }
