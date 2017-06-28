@@ -73,6 +73,23 @@ public class ActivityBarChart extends AppCompatActivity {
         d.setTextSize(20);
         chart.setDescription(d);
 
+        //setting BackGroumdColor
+        chart.setBackgroundColor(Color.LTGRAY);
+
+        //If enabled, the background rectangle behind the chart drawing-area will be drawn.
+        chart.setDrawGridBackground(true);
+
+        //Sets the color the grid-background should be drawn with.
+        chart.setGridBackgroundColor(Color.YELLOW);
+
+        //Enables / disables drawing the chart borders (lines surrounding the chart).
+        chart.setDrawBorders(false);
+
+        //Sets the color of the chart border lines.
+        chart.setBorderColor(Color.MAGENTA);
+
+        //Sets the width of the chart border lines in dp.
+        chart.setBorderWidth(10);
         //chart.setFitBars(true)
         chart.invalidate();
     }

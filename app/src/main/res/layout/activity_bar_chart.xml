@@ -5,6 +5,7 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:layout_gravity="center"
     tools:context="com.wemen.samvedna.graphviewsamples.ActivityBarChart">
 
     <com.github.mikephil.charting.charts.BarChart
