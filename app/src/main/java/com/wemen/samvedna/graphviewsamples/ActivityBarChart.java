@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -61,9 +62,16 @@ public class ActivityBarChart extends AppCompatActivity {
         chart.getAxisLeft().setDrawGridLines(false);
         chart.setHighlightFullBarEnabled(false);
         chart.setDoubleTapToZoomEnabled(false);*/
-        chart.groupBars(0f,0.06f,0.02f);
+        chart.groupBars(-0.51f,0.06f,0.02f);
         chart.animateY(1000);
         chart.animateX(4000);
+
+        //setting Description to Chart
+        Description d = new Description();
+        d.setText("hello world");
+        d.setTextColor(Color.BLUE);
+        d.setTextSize(20);
+        chart.setDescription(d);
 
         //chart.setFitBars(true)
         chart.invalidate();
