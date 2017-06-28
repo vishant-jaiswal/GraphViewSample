@@ -7,6 +7,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public class ActivityBarChart extends AppCompatActivity {
 
 
         BarDataSet dataset = new BarDataSet(entries, "# of Calls");
-        dataset.setValueFormatter(new MyValueFormatter());
+        dataset.setValueFormatter(new PercentFormatter());
 
         ArrayList<String> labels = new ArrayList<String>();
         labels.add("January");
