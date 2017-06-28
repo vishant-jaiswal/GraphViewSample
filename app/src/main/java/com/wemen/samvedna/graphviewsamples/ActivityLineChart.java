@@ -42,6 +42,7 @@ public class ActivityLineChart extends AppCompatActivity implements OnChartValue
         dataSet.setValueTextColor(getResources().getColor(R.color.colorAccent));
 
         LineData lineData = new LineData(dataSet);
+        lineData.setValueFormatter(new MyValueFormatter());
         chart.setData(lineData);
         XAxis xAxis = chart.getXAxis();
         xAxis.setLabelRotationAngle(90);

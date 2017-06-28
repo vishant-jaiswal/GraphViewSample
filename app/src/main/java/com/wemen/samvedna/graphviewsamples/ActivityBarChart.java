@@ -29,6 +29,7 @@ public class ActivityBarChart extends AppCompatActivity {
 
 
         BarDataSet dataset = new BarDataSet(entries, "# of Calls");
+        dataset.setValueFormatter(new MyValueFormatter());
 
         ArrayList<String> labels = new ArrayList<String>();
         labels.add("January");
