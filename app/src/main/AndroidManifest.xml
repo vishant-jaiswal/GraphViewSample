@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".ActivityBarChart" />
         <activity android:name=".ActivityHorizontalBarChart" />
-        <activity android:name=".ActivityPieChart"></activity>
+        <activity android:name=".ActivityPieChart" />
+        <activity android:name=".ActivityWheelView"></activity>
     </application>
 
 </manifest>

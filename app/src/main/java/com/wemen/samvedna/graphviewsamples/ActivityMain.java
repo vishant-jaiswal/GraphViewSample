@@ -12,6 +12,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     Button btn_bar_chart;
     Button btn_horizontal_bar_chart;
     Button btn_pie_chart;
+    Button btn_wheel_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +23,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
         btn_line_chart = (Button) findViewById(R.id.btn_line_chart);
         btn_horizontal_bar_chart = (Button) findViewById(R.id.btn_horizontal_bar_chart);
         btn_pie_chart = (Button) findViewById(R.id.btn_pie_chart);
+        btn_wheel_view = (Button) findViewById(R.id.btn_wheel_view);
 
         btn_bar_chart.setOnClickListener(this);
         btn_line_chart.setOnClickListener(this);
         btn_horizontal_bar_chart.setOnClickListener(this);
         btn_pie_chart.setOnClickListener(this);
+        btn_wheel_view.setOnClickListener(this);
     }
 
     @Override
@@ -43,7 +46,16 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_pie_chart:
                 openPieChartActivity();
+                break;
+            case R.id.btn_wheel_view:
+                openWheelActivity();
+                break;
         }
+    }
+
+    private void openWheelActivity() {
+        Intent intent = new Intent(this, ActivityWheelView.class);
+        startActivity(intent);
     }
 
     private void openPieChartActivity() {

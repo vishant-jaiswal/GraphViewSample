@@ -33,4 +33,10 @@
         android:layout_height="wrap_content"
         android:text="Pie Chart Sample"/>
 
+    <Button
+        android:id="@+id/btn_wheel_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wheel View Sample"/>
+
 </LinearLayout>
